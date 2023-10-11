@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    Hello {{ name }}
+    <hr>
+
+    <h1>Payment Status</h1>
+
+    {% if success %}
+        <p>Payment processed successfully!</p>
+    {% else %}
+        <p>Payment processing failed. Error message: {{ error_message }}</p>
+    {% endif %}
+
+
+{% endblock %}

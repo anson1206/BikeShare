@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class = "userinfo">
+Hello {{ name }}
+    </div>
+    <hr>
+
+    <!-- Check Available Bikes Section -->
+    <div id="availabilitySection">
+        <h2>Check Available Bikes</h2>
+        <form action="/checkAvailability" method="post">
+            <div class="form-group">
+                <label for="location">Select Location:</label>
+                <select class="form-control" id="location" name="location">
+                    <!-- Option values will be station_id from the bikeshare_stations table -->
+                   {% for _, station in stations.iterrows() %}
+                    <option value="{{ station['station_id'] }}">{{ station['name'] }}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info">Book</button>
+        </form>
+    </div>
+{% endblock %}
